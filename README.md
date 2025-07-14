@@ -3,7 +3,7 @@ TodoList Preact Application
 
 Application de gestion de tâches moderne et performante utilisant Preact pour l'interface et RequireJS pour le chargement modulaire des composants.
 
-Fonctionnalités principales
+## Fonctionnalités principales
 ✅ Ajout/suppression de tâches
 
 ✅ Marquer les tâches comme complétées
@@ -16,7 +16,8 @@ Fonctionnalités principales
 
 🚀 Réactivité optimisée avec pattern Observer
 
-Technologies clés
+
+## Technologies clés
 Preact 10 (Alternative légère à React)
 
 RequireJS (Chargement modulaire)

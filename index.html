@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Todo List - Preact</title>
+        <link rel="stylesheet" href="./assets/css/pure-min.css" />
+        <link rel="stylesheet" href="./assets/css/grids-responsive-min.css" />
+        <link rel="stylesheet" href="./assets/css/styles.css" />
+    </head>
+    <body>
+        <div id="app"></div>
+        <!-- Conteneur racine où l'application sera rendue -->
+
+        <!--
+        CHARGEMENT DE HTM:
+        - On charge HTM en premier avant RequireJS
+        - Cela permet de le rendre disponible globalement
+        - Version UMD compatible avec les navigateurs
+    -->
+        <script src="./assets/js/lib/htm.umd.js"></script>
+
+        <!-- CHARGEMENT DE REQUIREJS: module loader -->
+        <script src="./assets/js/lib/require.js"></script>
+        <script>
+            // Configuration de HTM comme variable globale
+            // HTM s'enregistre lui-même dans window.htm
+            window.htm = window.htm || htm;
+
+            // CONFIGURATION DE REQUIREJS
+            require.config({
+                paths: {
+                    // Chemins pour Preact et ses hooks
+                    preact: "assets/js/lib/preact.umd",
+                    "preact/hooks": "assets/js/lib/hooks.umd",
+                },
+                shim: {
+                    // Configuration spéciale pour les hooks Preact
+                    "preact/hooks": {
+                        deps: ["preact"], // Dépend de Preact
+                        exports: "hooks", // Exporte sous le nom 'hooks'
+                    },
+                },
+            });
+
+            // DEMARRAGE DE L'APPLICATION
+            require(["assets/js/app"], function (App) {
+                App.init(); // Initialise l'application
+            });
+        </script>
+    </body>
+</html>
